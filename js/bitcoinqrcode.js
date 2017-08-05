@@ -6,12 +6,6 @@
 
 		this.pixels = 37;
 
-		this.sizes = [
-			this.pixels * 6,
-			this.pixels * 3,
-			this.pixels * 2,
-		];
-
 		this.overlays = [
 			'pixel.png',
 			'bitcoin-icon.png',
@@ -157,9 +151,6 @@
 					context.drawImage(image, offset, offset, size, size);
 
 					$(canvas)
-						.on('click', function() {
-							self.imgur(canvas);
-						})
 						.appendTo(wrap)
 						.show()
 
@@ -168,47 +159,6 @@
 			}());
 		});
 	};
-
-	App.prototype.imgur = function(canvas) {
-		var
-			image
-			spinner = $('<div class="spinner">');
-
-		spinner.appendTo($(canvas).parent());
-
-		try {
-			var image = canvas.toDataURL('image/png').split(',')[1];
-		} catch(e) {
-			var image = canvas.toDataURL().split(',')[1];
-		}
-
-		$.ajax({
-			url: 'https://api.imgur.com/3/image',
-			type: 'POST',
-			headers: {
-				'Authorization': 'Client-ID ' + IMGUR_CLIENT_ID
-			},
-			data: {
-				type: 'base64',
-				title: this.address,
-				description: 'Via bitcoinqrcode.org',
-				image: image
-			},
-			dataType: 'json'
-		})
-		.success(function(data) {
-			spinner.hide();
-
-			link = $('<div class="link"><input type="text" value="' + data.data.link + '"></div>');
-
-			link.appendTo($(canvas).parent());
-		})
-		.error(function() {
-			spinner.hide();
-
-			alert('Sorry, the image could not be uploaded. We probably hit Imgur\'s upload limit.\n\nYou can still download the image and upload it yourself.');
-		});
-	}
 
 	$(function() {
 		$(".toggler").click(function(e) {
