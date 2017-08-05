@@ -13,6 +13,8 @@ and more.
     * Amount
     * Label
     * Message
+* Removed Piwik tracking
+* Replaced social share buttons with privacy enhanced links
 
 ## Development
 

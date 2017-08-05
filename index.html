@@ -104,13 +104,20 @@
                 <div class="fb-like" data-href="https://bitcoinqrcode.org/" data-send="false" data-layout="button_count"
                      data-width="105" data-show-faces="false" style="margin-bottom: 4px;"></div>
 
-                <div><a href="https://twitter.com/share" class="twitter-share-button"
-                        data-url="https://bitcoinqrcode.org/" data-text="#Bitcoin QR Code Generator"
-                        data-count="horizontal">Tweet</a></div>
+                <a href="https://twitter.com/intent/tweet?text=%23Bitcoin+QR+Code+Generator&amp;url=http%3A%2F%2Fbitcoinqrcode.org">
+                    <span class="share_text">Tweet</span>
+                </a>
 
-                <div class="g-plusone" data-href="https://bitcoinqrcode.org/" data-size="medium"
-                     data-count="true"></div>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fbitcoinqrcode.org">
+                    <span class="share_text">Share on Facebook</span>
+                </a>
+
+                <a href="https://plus.google.com/share?url=http%3A%2F%2Fbitcoinqrcode.org">
+                    <span class="share_text">Share on Google+</span>
+                </a>
             </div>
+
+            <div id="socialshareprivacy"></div>
 
             By <a href="https://alias.io">Elbert Alias</a>. Donate Bitcoin: 18Vm8AvDr9Bkvij6UfVR7MerCyrz3KS3h4 <em>&mdash;
             Thanks!</em>
@@ -128,46 +135,6 @@
     <script src="./lib/jquery-qrcode/src/qrcode.js"></script>
     <script src="./lib/jquery-qrcode/src/jquery.qrcode.js"></script>
     <script src="./js/bitcoinqrcode.js"></script>
-
-    <!-- Twitter -->
-    <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
-
-    <!-- Google Plus -->
-    <link href="https://plus.google.com/b/107008529118023432137/" rel="publisher"/>
-
-    <script type="text/javascript">
-        (function () {
-            var po = document.createElement("script");
-            po.type = "text/javascript";
-            po.async = true;
-            po.src = "https://apis.google.com/js/plusone.js";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(po, s);
-        })();
-    </script>
-
-    <script type="text/javascript">
-        (function () {
-            var po = document.createElement('script');
-            po.type = 'text/javascript';
-            po.async = true;
-            po.src = 'https://apis.google.com/js/plusone.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(po, s);
-        })();
-    </script>
-
-    <!-- Facebook -->
-    <div id="fb-root"></div>
-
-    <script>(function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
 </div>
 </body>
 </html>
