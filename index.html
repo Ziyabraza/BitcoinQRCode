@@ -1,133 +1,139 @@
 <!DOCTYPE html>
 
 <html>
-	<head>
-		<meta charset="utf-8">
+<head>
+    <meta charset="utf-8">
 
-		<title>Bitcoin QR Code Generator</title>
+    <title>Bitcoin QR Code Generator</title>
 
-		<meta name="description" content="Bitcoin QR code generator.">
-		<meta name="keywords"    content="bitcoin, litecoin, qr, generator, tool">
+    <meta name="description" content="Bitcoin QR code generator.">
+    <meta name="keywords" content="bitcoin, litecoin, qr, generator, tool">
 
-		<link rel="stylesheet" href="./lib/foundation/foundation.min.css">
-		<link rel="stylesheet" href="./css/bitcoinqrcode.css">
-	</head>
-	<body>
-    <div class="row">
-		<div class="large-12 columns">
-			<h1>Bitcoin QR Code Generator</h1>
+    <link rel="stylesheet" href="./lib/foundation/foundation.min.css">
+    <link rel="stylesheet" href="./css/bitcoinqrcode.css">
+</head>
+<body>
+<div class="row">
+    <div class="large-12 columns">
+        <h1>Bitcoin QR Code Generator</h1>
 
-			<p>Click a <a href="https://en.wikipedia.org/wiki/QR_code">QR code</a> to upload it to <a href="https://imgur.com">Imgur</a>. Find out more about <a href="http://bitcoin.org/">Bitcoin</a>.</p>
+        <p>Click a <a href="https://en.wikipedia.org/wiki/QR_code">QR code</a> to upload it to <a
+                href="https://imgur.com">Imgur</a>. Find out more about <a href="http://bitcoin.org/">Bitcoin</a>.</p>
 
-			<form method="post">
-				<div class="row">
-					<div class="large-9 columns">
-						<label for="address">Bitcoin address:</label>
+        <form method="post">
+            <div class="row">
+                <div class="large-9 columns">
+                    <label for="address">Bitcoin address:</label>
 
-						<input id="address" type="text" placeholder="18Vm8AvDr9Bkvij6UfVR7MerCyrz3KS3h4"/>
-					</div>
-					<div class="large-3 columns">
-						<label for="size">Size (px):</label>
+                    <input id="address" placeholder="18Vm8AvDr9Bkvij6UfVR7MerCyrz3KS3h4"/>
+                </div>
+                <div class="large-3 columns">
+                    <label for="size">Size (px):</label>
 
-						<input id="size" type="text" placeholder="250" value="250"/>
-					</div>
-				</div>
-				
-				<div id="adv" class="slide hidden togglee">
-				
-					<div class="row">
-						<div class="large-9 columns">
-						<label for="amount">Amount (BTC):</label>
-						<div class="row collapse">
-							<div class="small-1 large-1 columns">
-							  <span class="prefix"><input id="is_amount" type="checkbox"/></span>
-							</div>
-							<div class="small-11 large-11 columns">
-							  <input id="amount" type="text" placeholder="1" value="0"/>
-							</div>
-						  </div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="large-9 columns">
-							<label for="label">Label (identifier/name):</label>
-							 <div class="row collapse">
-								<div class="small-1 large-1 columns">
-								  <span class="prefix"><input id="is_label" type="checkbox"/></span>
-								</div>
-								<div class="small-11 large-11 columns">
-								  <input id="label" type="text" placeholder="Identifier or name"/>
-								</div>
-							  </div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="large-9 columns">
-							<label for="msg">Message:</label>
-							 <div class="row collapse">
-								<div class="small-1 large-1 columns">
-								  <span class="prefix"><input id="is_msg" type="checkbox"/></span>
-								</div>
-								<div class="small-11 large-11 columns">
-								  <input id="msg" type="text" placeholder="Some message"/>
-								</div>
-							  </div>
-						</div>
-					</div>
-					
-				</div>
-				
-				<a class="button toggle-link toggler">
-					<span>+ show advanced fields</span>
-					<span class="hidden">- hide advanced fields</span>
-				</a>
-				
-			</form>
+                    <input id="size" placeholder="250" value="250"/>
+                </div>
+            </div>
 
-			<div id="qrcodes"></div>
+            <div id="adv" class="slide hidden togglee">
 
-			<hr>
-			
-			<div>
-				<div class="row collapse">
-					<div class="small-3 large-2 columns">
-					  <span class="prefix">Readed with reader: </span>
-					</div>
-					<div class="small-9 large-10 columns">
-					  <input id="camera" type="text" readonly="readonly"/>
-					</div>
-				</div>
-			</div>
+                <div class="row">
+                    <div class="large-9 columns">
+                        <label for="amount">Amount (BTC):</label>
+                        <div class="row collapse">
+                            <div class="small-1 large-1 columns">
+                                <span class="prefix"><input id="is_amount" type="checkbox"/></span>
+                            </div>
+                            <div class="small-11 large-11 columns">
+                                <input id="amount" placeholder="1" value="0"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-9 columns">
+                        <label for="label">Label (identifier/name):</label>
+                        <div class="row collapse">
+                            <div class="small-1 large-1 columns">
+                                <span class="prefix"><input id="is_label" type="checkbox"/></span>
+                            </div>
+                            <div class="small-11 large-11 columns">
+                                <input id="label" placeholder="Identifier or name"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-9 columns">
+                        <label for="msg">Message:</label>
+                        <div class="row collapse">
+                            <div class="small-1 large-1 columns">
+                                <span class="prefix"><input id="is_msg" type="checkbox"/></span>
+                            </div>
+                            <div class="small-11 large-11 columns">
+                                <input id="msg" placeholder="Some message"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-			<footer>
-				<div id="share">
-					<div class="fb-like" data-href="https://bitcoinqrcode.org/" data-send="false" data-layout="button_count" data-width="105" data-show-faces="false" style="margin-bottom: 4px;"></div>
+            </div>
 
-					<div><a href="https://twitter.com/share" class="twitter-share-button" data-url="https://bitcoinqrcode.org/" data-text="#Bitcoin QR Code Generator" data-count="horizontal">Tweet</a></div>
+            <a class="button toggle-link toggler">
+                <span>+ show advanced fields</span>
+                <span class="hidden">- hide advanced fields</span>
+            </a>
 
-					<div class="g-plusone" data-href="https://bitcoinqrcode.org/" data-size="medium" data-count="true"></div>
-				</div>
+        </form>
 
-				By <a href="https://alias.io">Elbert Alias</a>. Donate Bitcoin: 18Vm8AvDr9Bkvij6UfVR7MerCyrz3KS3h4 <em>&mdash; Thanks!</em>
+        <div id="qrcodes"></div>
 
-				<br><br>
+        <hr>
 
-				<img src="./img/donate.png">
-			<footer>
+        <div>
+            <div class="row collapse">
+                <div class="small-3 large-2 columns">
+                    <span class="prefix">Readed with reader: </span>
+                </div>
+                <div class="small-9 large-10 columns">
+                    <input id="camera"/>
+                </div>
+            </div>
+        </div>
 
-			<div id="qrcode"></div>
-		</div>
+        <footer>
+            <div id="share">
+                <div class="fb-like" data-href="https://bitcoinqrcode.org/" data-send="false" data-layout="button_count"
+                     data-width="105" data-show-faces="false" style="margin-bottom: 4px;"></div>
 
-		<a id="fork" href="https://github.com/ElbertF/BitcoinQRCode.org">Fork me on Github</a>
+                <div><a href="https://twitter.com/share" class="twitter-share-button"
+                        data-url="https://bitcoinqrcode.org/" data-text="#Bitcoin QR Code Generator"
+                        data-count="horizontal">Tweet</a></div>
 
-		<script src="./lib/jquery/jquery-2.0.3.min.js"></script>
-		<script src="./lib/jquery-qrcode/src/qrcode.js"></script>
-		<script src="./lib/jquery-qrcode/src/jquery.qrcode.js"></script>
-		<script src="./conf/imgur.js"></script>
-		<script src="./js/bitcoinqrcode.js"></script>
+                <div class="g-plusone" data-href="https://bitcoinqrcode.org/" data-size="medium"
+                     data-count="true"></div>
+            </div>
 
-		<!-- Piwik -->
-		<script type="text/javascript">
+            By <a href="https://alias.io">Elbert Alias</a>. Donate Bitcoin: 18Vm8AvDr9Bkvij6UfVR7MerCyrz3KS3h4 <em>&mdash;
+            Thanks!</em>
+
+            <br><br>
+
+            <img src="./img/donate.png">
+        </footer>
+
+        <div id="qrcode"></div>
+    </div>
+
+    <a id="fork" href="https://github.com/ElbertF/BitcoinQRCode.org">Fork me on Github</a>
+
+    <script src="./lib/jquery/jquery-2.0.3.min.js"></script>
+    <script src="./lib/jquery-qrcode/src/qrcode.js"></script>
+    <script src="./lib/jquery-qrcode/src/jquery.qrcode.js"></script>
+    <script src="./conf/imgur.js"></script>
+    <script src="./js/bitcoinqrcode.js"></script>
+
+    <!-- Piwik -->
+    <script type="text/javascript">
 		  var _paq = _paq || [];
 		  _paq.push(["trackPageView"]);
 		  _paq.push(["enableLinkTracking"]);
@@ -139,41 +145,46 @@
 			var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
 			g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
 		  })();
-		</script>
-		<!-- End Piwik Code -->
 
-		<!-- Twitter -->
-		<script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+    </script>
+    <!-- End Piwik Code -->
 
-		<!-- Google Plus -->
-		<link href="https://plus.google.com/b/107008529118023432137/" rel="publisher"/>
+    <!-- Twitter -->
+    <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
 
-		<script type="text/javascript">
+    <!-- Google Plus -->
+    <link href="https://plus.google.com/b/107008529118023432137/" rel="publisher"/>
+
+    <script type="text/javascript">
 		(function()
 		{var po = document.createElement("script");
 		po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
 		var s = document.getElementsByTagName("script")[0];
 		s.parentNode.insertBefore(po, s);
 		})();
-		</script>
 
-		<script type="text/javascript">
+    </script>
+
+    <script type="text/javascript">
 		(function() {
 		var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
 		po.src = 'https://apis.google.com/js/plusone.js';
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
 		})();
-		</script>
 
-		<!-- Facebook -->
-		<div id="fb-root"></div>
+    </script>
 
-		<script>(function(d, s, id) {
+    <!-- Facebook -->
+    <div id="fb-root"></div>
+
+    <script>(function(d, s, id) {
 		  var js, fjs = d.getElementsByTagName(s)[0];
 		  if (d.getElementById(id)) return;
 		  js = d.createElement(s); js.id = id;
 		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
 		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
-	</body>
+		}(document, 'script', 'facebook-jssdk'));
+    </script>
+</div>
+</body>
 </html>

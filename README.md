@@ -21,6 +21,7 @@ This project is open for pull requests. So feel free to contribute
 1. Download the project using Git clone
 2. Run `git submodule update --init --recursive` to initialize the jQuery-qrcode library
 3. Start coding
+4. Test your changes by dropping the index.html into your browser
 
 ## Website
 
