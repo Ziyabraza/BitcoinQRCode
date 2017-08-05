@@ -24,12 +24,12 @@
                 <div class="large-9 columns">
                     <label for="address">Bitcoin address:</label>
 
-                    <input id="address" placeholder="18Vm8AvDr9Bkvij6UfVR7MerCyrz3KS3h4"/>
+                    <input id="address" type="text" placeholder="18Vm8AvDr9Bkvij6UfVR7MerCyrz3KS3h4"/>
                 </div>
                 <div class="large-3 columns">
                     <label for="size">Size (px):</label>
 
-                    <input id="size" placeholder="250" value="250"/>
+                    <input id="size" type="text" placeholder="250" value="250"/>
                 </div>
             </div>
 
@@ -43,7 +43,7 @@
                                 <span class="prefix"><input id="is_amount" type="checkbox"/></span>
                             </div>
                             <div class="small-11 large-11 columns">
-                                <input id="amount" placeholder="1" value="0"/>
+                                <input id="amount" type="text" placeholder="1" value="0"/>
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                                 <span class="prefix"><input id="is_label" type="checkbox"/></span>
                             </div>
                             <div class="small-11 large-11 columns">
-                                <input id="label" placeholder="Identifier or name"/>
+                                <input id="label" type="text" placeholder="Identifier or name"/>
                             </div>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
                                 <span class="prefix"><input id="is_msg" type="checkbox"/></span>
                             </div>
                             <div class="small-11 large-11 columns">
-                                <input id="msg" placeholder="Some message"/>
+                                <input id="msg" type="text" placeholder="Some message"/>
                             </div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                     <span class="prefix">Readed with reader: </span>
                 </div>
                 <div class="small-9 large-10 columns">
-                    <input id="camera"/>
+                    <input id="camera" type="text" readonly="readonly"/>
                 </div>
             </div>
         </div>
@@ -118,9 +118,8 @@
             <br><br>
 
             <img src="./img/donate.png">
+            <div id="qrcode"></div>
         </footer>
-
-        <div id="qrcode"></div>
     </div>
 
     <a id="fork" href="https://github.com/ElbertF/BitcoinQRCode.org">Fork me on Github</a>
@@ -137,35 +136,38 @@
     <link href="https://plus.google.com/b/107008529118023432137/" rel="publisher"/>
 
     <script type="text/javascript">
-		(function()
-		{var po = document.createElement("script");
-		po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
-		var s = document.getElementsByTagName("script")[0];
-		s.parentNode.insertBefore(po, s);
-		})();
-
+        (function () {
+            var po = document.createElement("script");
+            po.type = "text/javascript";
+            po.async = true;
+            po.src = "https://apis.google.com/js/plusone.js";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(po, s);
+        })();
     </script>
 
     <script type="text/javascript">
-		(function() {
-		var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-		po.src = 'https://apis.google.com/js/plusone.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-		})();
-
+        (function () {
+            var po = document.createElement('script');
+            po.type = 'text/javascript';
+            po.async = true;
+            po.src = 'https://apis.google.com/js/plusone.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(po, s);
+        })();
     </script>
 
     <!-- Facebook -->
     <div id="fb-root"></div>
 
-    <script>(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) return;
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-    </script>
+    <script>(function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 </div>
 </body>
 </html>

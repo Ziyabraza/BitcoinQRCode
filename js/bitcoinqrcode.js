@@ -21,7 +21,7 @@
 		this.is_amount = false;
 		this.is_label  = false;
 		this.is_msg    = false;
-		this.amout     = 0;
+		this.amount     = 0;
 		this.label     = '';
 		this.msg       = '';
 
