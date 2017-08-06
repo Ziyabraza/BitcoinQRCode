@@ -44,7 +44,7 @@ This project is open for pull requests. So feel free to contribute
 
 1. Add your Bitcoin address
 2. (Optional) Set a configurable size
-3. (Optional) 
+3. (Optional) Use the advanced fields
 4. Right click on the image to save it to disk or copy to clipboard
 
 ## Credits
