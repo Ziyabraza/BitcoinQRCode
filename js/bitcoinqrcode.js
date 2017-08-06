@@ -24,7 +24,7 @@ $(function () {
         this.is_label = false;
         this.is_msg = false;
         this.amount = 0; //this is always in BTC
-        this.amount_factor = $('#amount-factor option:selected').val();
+        this.amount_factor = $('#amount-factor').find('option:selected').val();
         this.label = '';
         this.msg = '';
 
@@ -94,7 +94,7 @@ $(function () {
 
         $('#amount-factor').change(function () {
             var old_type = self.amount_factor;
-            var new_type = $('#amount-factor option:selected').val();
+            var new_type = $('#amount-factor').find('option:selected').val();
 
             var old_coins = $('#amount').val();
             var coins = btcConvert(old_coins, old_type, new_type, 'Big');
@@ -141,12 +141,12 @@ $(function () {
         $(self.overlays).filter(function (index) {
             //filter out other logos
             var overlay = self.overlays[index];
-            return overlay.indexOf(self.type) >= 0 || overlay == 'pixel.png';
+            return overlay.indexOf(self.type) >= 0 || overlay === 'pixel.png';
         }).each(function (i, overlay) {
             var
                 canvas = $('<canvas>').get(0),
                 context = canvas.getContext('2d'),
-                size = Math.floor(self.size / self.pixels) * self.pixels
+                size = Math.floor(self.size / self.pixels) * self.pixels;
             var offset = Math.floor(( self.size - size ) / 2);
 
             canvas.width = self.size;
