@@ -41,4 +41,3 @@ This project is open for pull requests. So feel free to contribute
 * [AliasIO](https://github.com/AliasIO) - Original author
 * [ZerooCool](https://github.com/ZerooCool) - Use https links
 * [tg44](https://github.com/tg44) - Add advanced fields
-
