@@ -12,6 +12,10 @@ form input[type="radio"] {
     display: none;
 }
 
+#qrcodes {
+    text-align: center;
+}
+
 #qrcodes div {
     display: inline-block;
     position: relative;

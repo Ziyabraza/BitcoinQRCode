@@ -1,21 +1,34 @@
 $(function () {
     var app, App;
 
+    var CURRENCY = {
+        Bitcoin: {
+            name: "Bitcoin",
+            prefix: "bitcoin",
+            units: ["BTC", "mBTC", "µBTC", "Satoshi"],
+            overlays: [
+                'pixel.png',
+                'bitcoin-icon.png',
+                'bitcoin-coin.png',
+                'bitcoin-logo.png',
+                'bitcoin-8bit.png'
+            ]
+        },
+        Litecoin: {
+            name: "Litecoin",
+            prefix: "litecoin",
+            units: ["LTC", "mLTC", "µLTC", "Litoshi"],
+            overlays: [
+                'pixel.png',
+                'litecoin-coin.png'
+            ]
+        }
+    };
+
     App = function () {
         var self = this;
 
-        this.pixels = 37;
-
-        this.overlays = [
-            'pixel.png',
-            'bitcoin-icon.png',
-            'bitcoin-coin.png',
-            'bitcoin-logo.png',
-            'bitcoin-8bit.png',
-            'litecoin-coin.png'
-        ];
-
-        this.type = 'bitcoin';
+        this.type = CURRENCY.Bitcoin;
 
         this.address = '';
         this.size = 0;
@@ -23,7 +36,7 @@ $(function () {
         this.is_amount = false;
         this.is_label = false;
         this.is_msg = false;
-        this.amount = 0; //this is always in BTC
+        this.amount = 0; //this is always in BTC or LTC
         this.amount_factor = $('#amount-factor').find('option:selected').val();
         this.label = '';
         this.msg = '';
@@ -33,22 +46,21 @@ $(function () {
                 var address = $('#address').val();
                 var size = Math.min(600, Math.max(100, parseInt($('#size').val())));
 
-                var amount = 0;
-                var label = '';
-                var msg = '';
-
                 var is_amount = $('#is_amount').is(':checked');
                 var is_label = $('#is_label').is(':checked');
                 var is_msg = $('#is_msg').is(':checked');
 
+                var amount = 0;
                 if (is_amount) {
                     amount = parseFloat($('#amount').val());
                 }
 
+                var label = '';
                 if (is_label) {
                     label = $('#label').val();
                 }
 
+                var msg = '';
                 if (is_msg) {
                     msg = $('#msg').val();
                 }
@@ -85,10 +97,11 @@ $(function () {
                 }
             }).trigger('change');
 
-        $('.type').click(function () {
+        $('.currency').click(function () {
             $('#qrcode, #qrcodes').empty();
 
-            self.type = $('.type:checked').val();
+            var index = $('.currency:checked').val();
+            self.type = CURRENCY[index];
             self.update();
         });
 
@@ -107,7 +120,7 @@ $(function () {
     App.prototype.update = function () {
         var self = this;
 
-        var text = this.type + ':' + this.address;
+        var text = this.type.prefix + ':' + this.address;
         if (this.is_amount) {
             text += '?amount=' + this.amount;
         }
@@ -132,21 +145,16 @@ $(function () {
 
         $('#qrcode').qrcode({
             text: text,
-            width: this.pixels * 26,
-            height: this.pixels * 26
+            width: self.size,
+            height: self.size
         });
 
         var qrcode = $('#qrcode').find('canvas').get(0);
 
-        $(self.overlays).filter(function (index) {
-            //filter out other logos
-            var overlay = self.overlays[index];
-            return overlay.indexOf(self.type) >= 0 || overlay === 'pixel.png';
-        }).each(function (i, overlay) {
-            var
-                canvas = $('<canvas>').get(0),
-                context = canvas.getContext('2d'),
-                size = Math.floor(self.size / self.pixels) * self.pixels;
+        $(self.type.overlays).each(function (i, overlay) {
+            var canvas = $('<canvas>').get(0);
+            var context = canvas.getContext('2d');
+            var size = Math.floor(self.size);
             var offset = Math.floor(( self.size - size ) / 2);
 
             canvas.width = self.size;
