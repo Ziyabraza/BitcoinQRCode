@@ -67,9 +67,9 @@
                 || ( amount && amount !== self.amount )
                 || ( label && label !== self.label )
                 || ( msg && msg !== self.msg )
-                || ( is_amount && is_amount !== self.is_amount )
-                || ( is_label && is_label !== self.is_label )
-                || ( is_msg && is_msg !== self.is_msg )
+                || ( is_amount !== self.is_amount )
+                || ( is_label !== self.is_label )
+                || ( is_msg !== self.is_msg )
             ) {
                 $('#qrcode, #qrcodes').html('');
 
@@ -87,7 +87,7 @@
             }
         })
             .trigger('change');
-    }
+    };
 
     App.prototype.update = function () {
         var
@@ -122,14 +122,14 @@
             height: this.pixels * 26
         });
 
-        qrcode = $('#qrcode canvas').get(0);
+        qrcode = $('#qrcode').find('canvas').get(0);
 
         $(self.overlays).each(function (i, overlay) {
             var
                 canvas = $('<canvas>').get(0),
                 context = canvas.getContext('2d'),
                 size = Math.floor(self.size / self.pixels) * self.pixels
-            offset = Math.floor(( self.size - size ) / 2);
+            var offset = Math.floor(( self.size - size ) / 2);
 
             canvas.width = self.size;
             canvas.height = self.size;
@@ -152,7 +152,7 @@
 
                     $(canvas)
                         .appendTo(wrap)
-                        .show()
+                        .show();
 
                     wrap.appendTo('#qrcodes');
                 });
