@@ -38,16 +38,24 @@
 
         <form method="post">
             <div class="row">
-                <div class="large-9 columns" >
+                <div class="large-6 columns" >
                     <label for="address">Bitcoin address:</label>
 
                     <input id="address" type="text" placeholder="18Vm8AvDr9Bkvij6UfVR7MerCyrz3KS3h4"
                            title="The address to send the payment to."/>
                 </div>
+
                 <div class="large-3 columns">
                     <label for="size">Size (px):</label>
 
                     <input id="size" type="text" placeholder="140" value="140" title="Image size"/>
+                </div>
+
+                <div class="large-3 columns">
+                    <label>Address type:</label>
+
+                    <input class="type" type="radio" name="type" value="bitcoin" checked="true">Bitcoin</input>
+                    <input class="type" type="radio" name="type" value="litecoin">Litecoin</input>
                 </div>
             </div>
 

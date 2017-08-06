@@ -17,6 +17,11 @@ and more.
 * Replaced social share buttons with privacy enhanced links
 * OpenGraph implementation
 
+## Supported currencies
+
+* Bitcoin
+* Litecoin
+
 ## Development
 
 This project is open for pull requests. So feel free to contribute
