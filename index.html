@@ -34,7 +34,8 @@
     <div class="large-12 columns">
         <h1>Bitcoin QR Code Generator</h1>
 
-        <p>Find out more about <a href="https://bitcoin.org/">Bitcoin</a>.</p>
+        <p>Find out more about <a href="https://bitcoin.org/">Bitcoin</a>. Right click on the images to copy it to
+        clipboard or save it to disk.</p>
 
         <form method="post">
             <div class="row">
@@ -62,21 +63,29 @@
             <div id="adv" class="slide hidden togglee">
 
                 <div class="row">
-                    <div class="large-9 columns">
-                        <label for="amount">Amount (BTC):</label>
+                    <div class="large-10 columns">
+                        <label for="amount">Amount:</label>
                         <div class="row collapse">
                             <div class="small-1 large-1 columns">
                                 <span class="prefix"><input id="is_amount" type="checkbox"/></span>
                             </div>
-                            <div class="small-11 large-11 columns">
-                                <input id="amount" type="text" placeholder="1" value="0"
+                            <div class="small-10 large-10 columns">
+                                <input id="amount" type="number" placeholder="1" value="0"
                                        title="An optional amount to request."/>
+                            </div>
+                            <div class="small-1 large-1 columns">
+                                <select id="amount-factor" class="postfix">
+                                    <option value="BTC">BTC</option>
+                                    <option value="mBTC">mBTC</option>
+                                    <option value="μBTC">&#181;BTC</option>
+                                    <option value="Satoshi">SAT</option>
+                                </select>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="large-9 columns">
+                    <div class="large-10 columns">
                         <label for="label">Label (identifier/name):</label>
                         <div class="row collapse">
                             <div class="small-1 large-1 columns">
@@ -90,7 +99,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="large-9 columns">
+                    <div class="large-10 columns">
                         <label for="msg">Message:</label>
                         <div class="row collapse">
                             <div class="small-1 large-1 columns">
@@ -161,6 +170,9 @@
 
     <script src="./lib/jquery/jquery-2.0.3.min.js"></script>
     <script src="./lib/jquery-qrcode/jquery.qrcode.min.js"></script>
+    <script src="./lib/big.min.js"></script>
+    <script src="./lib/bitcoin-convert.min.js"></script>
+
     <script src="./js/bitcoinqrcode.js"></script>
 </div>
 </body>

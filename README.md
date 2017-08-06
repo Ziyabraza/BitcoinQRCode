@@ -16,6 +16,11 @@ and more.
 * Removed Piwik tracking
 * Replaced social share buttons with privacy enhanced links
 * OpenGraph implementation
+* Support for different currency units
+    * BTC
+    * mBTC
+    * μBTC
+    * Satoshi
 
 ## Supported currencies
 

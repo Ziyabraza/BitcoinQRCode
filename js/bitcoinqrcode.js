@@ -23,12 +23,13 @@ $(function () {
         this.is_amount = false;
         this.is_label = false;
         this.is_msg = false;
-        this.amount = 0;
+        this.amount = 0; //this is always in BTC
+        this.amount_factor = $('#amount-factor option:selected').val();
         this.label = '';
         this.msg = '';
 
         $('#address, #size, #amount, #label, #msg, #is_amount, #is_label, #is_msg')
-            .on('change blur keyup mouseup click', function () {
+            .on('change keyup', function () {
                 var address = $('#address').val();
                 var size = Math.min(600, Math.max(100, parseInt($('#size').val())));
 
@@ -69,18 +70,17 @@ $(function () {
                     || ( is_label !== self.is_label )
                     || ( is_msg !== self.is_msg )
                 ) {
-                    $('#qrcodes').empty();
-
                     self.is_amount = is_amount;
                     self.is_label = is_label;
                     self.is_msg = is_msg;
 
                     self.address = address;
                     self.size = size;
-                    self.amount = amount;
+                    self.amount = btcConvert(amount, self.amount_factor, 'BTC', 'Big').toFixed(8);
                     self.label = label;
                     self.msg = msg;
 
+                    $('#qrcodes').empty();
                     self.update();
                 }
             }).trigger('change');
@@ -90,6 +90,17 @@ $(function () {
 
             self.type = $('.type:checked').val();
             self.update();
+        });
+
+        $('#amount-factor').change(function () {
+            var old_type = self.amount_factor;
+            var new_type = $('#amount-factor option:selected').val();
+
+            var old_coins = $('#amount').val();
+            var coins = btcConvert(old_coins, old_type, new_type, 'Big');
+            $('#amount').val(coins.toFixed(8));
+
+            self.amount_factor = new_type;
         });
     };
 
