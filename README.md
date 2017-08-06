@@ -38,7 +38,7 @@ This project is open for pull requests. So feel free to contribute
 
 ## Website
 
-[BitcoinQRCode](https://games647.github.io/BitcoinQRCode/index.html)
+[BitcoinQRCode](https://games647.github.io/BitcoinQRCode)
 
 ## How to use
 
