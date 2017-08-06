@@ -38,15 +38,16 @@
 
         <form method="post">
             <div class="row">
-                <div class="large-9 columns">
+                <div class="large-9 columns" >
                     <label for="address">Bitcoin address:</label>
 
-                    <input id="address" type="text" placeholder="18Vm8AvDr9Bkvij6UfVR7MerCyrz3KS3h4"/>
+                    <input id="address" type="text" placeholder="18Vm8AvDr9Bkvij6UfVR7MerCyrz3KS3h4"
+                           title="The address to send the payment to."/>
                 </div>
                 <div class="large-3 columns">
                     <label for="size">Size (px):</label>
 
-                    <input id="size" type="text" placeholder="140" value="140"/>
+                    <input id="size" type="text" placeholder="140" value="140" title="Image size"/>
                 </div>
             </div>
 
@@ -60,7 +61,8 @@
                                 <span class="prefix"><input id="is_amount" type="checkbox"/></span>
                             </div>
                             <div class="small-11 large-11 columns">
-                                <input id="amount" type="text" placeholder="1" value="0"/>
+                                <input id="amount" type="text" placeholder="1" value="0"
+                                       title="An optional amount to request."/>
                             </div>
                         </div>
                     </div>
@@ -73,7 +75,8 @@
                                 <span class="prefix"><input id="is_label" type="checkbox"/></span>
                             </div>
                             <div class="small-11 large-11 columns">
-                                <input id="label" type="text" placeholder="Identifier or name"/>
+                                <input id="label" type="text" placeholder="Identifier or name"
+                                       title="A short memorable name for this receiving address."/>
                             </div>
                         </div>
                     </div>
@@ -86,7 +89,8 @@
                                 <span class="prefix"><input id="is_msg" type="checkbox"/></span>
                             </div>
                             <div class="small-11 large-11 columns">
-                                <input id="msg" type="text" placeholder="Some message"/>
+                                <input id="msg" type="text" placeholder="Some message"
+                                       title="A message to attach to the payment request, which will be displayed when the request is opened. The message will not be sent over the Bitcoin Network."/>
                             </div>
                         </div>
                     </div>
@@ -95,7 +99,7 @@
             </div>
 
             <a class="button toggle-link toggler">
-                <span>+ show advanced fields</span>
+                <span title="Optional fields">+ show advanced fields</span>
                 <span class="hidden">- hide advanced fields</span>
             </a>
 

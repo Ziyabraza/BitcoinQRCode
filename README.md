@@ -15,6 +15,7 @@ and more.
     * Message
 * Removed Piwik tracking
 * Replaced social share buttons with privacy enhanced links
+* OpenGraph implementation
 
 ## Development
 
