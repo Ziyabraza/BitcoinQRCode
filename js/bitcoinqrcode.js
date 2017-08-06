@@ -85,20 +85,18 @@
 
                 self.update();
             }
-        })
-            .trigger('change');
+        }).trigger('change');
     };
 
     App.prototype.update = function () {
-        var
-            self = this,
-            qrcode;
+        var self = this;
 
         var text = '';
         text += 'bitcoin:' + this.address;
         if (this.is_amount) {
             text += '?amount=' + this.amount;
         }
+
         if (this.is_label) {
             if (this.is_amount) {
                 text += '&label=' + this.label;
@@ -106,6 +104,7 @@
                 text += '?label=' + this.label;
             }
         }
+
         if (this.is_msg) {
             if (this.is_amount || this.is_label) {
                 text += '&message=' + this.msg;
@@ -122,7 +121,7 @@
             height: this.pixels * 26
         });
 
-        qrcode = $('#qrcode').find('canvas').get(0);
+        var qrcode = $('#qrcode').find('canvas').get(0);
 
         $(self.overlays).each(function (i, overlay) {
             var
