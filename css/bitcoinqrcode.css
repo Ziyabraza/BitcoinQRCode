@@ -41,15 +41,11 @@ form input[type="radio"] {
     margin: 0 .5em .5em 0;
 }
 
-#fork {
-    background: url('../img/fork.png') right top no-repeat;
-    display: block;
-    height: 149px;
-    position: absolute;
-    right: 0;
-    text-indent: -99999px;
-    top: 0;
-    width: 149px;
+#fork img {
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    border: 0;
 }
 
 footer {

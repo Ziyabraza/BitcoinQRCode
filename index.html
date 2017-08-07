@@ -7,23 +7,23 @@
 
     <title>Bitcoin QR Code Generator</title>
 
-    <meta name="description" content="Generate QR codes for Bitcoin receiving addresses">
-    <meta name="keywords" content="bitcoin, litecoin, qr, generator, tool">
+    <meta name="description" content="Generates multiple QR codes for Bitcoin and Litecoin receiving addresses with optional options for label, amount and message">
+    <meta name="keywords" content="bitcoin, litecoin, qr, generator, tool, github, open-source">
 
     <meta name=viewport content="width=device-width, initial-scale=1">
 
     <!-- Meta data for social platforms -->
 
     <!-- Opengraph for Twitter, Facebook -->
-    <meta property="og:title" content="Bitcoin QR Code Generator" />
-    <meta property="og:description" content="Generate QR codes for Bitcoin receiving addresses"/>
-    <meta property="og:image" content="https://games647.github.io/BitcoinQRCode/favicon.ico" />
-    <meta property="og:url" content="https://games647.github.io/BitcoinQRCode" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Bitcoin QR Code Generator" />
+    <meta property="og:title" content="Bitcoin QR Code Generator"/>
+    <meta property="og:description" content="Generates multiple QR codes for Bitcoin and Litecoin receiving addresses with optional options for label, amount and message"/>
+    <meta property="og:image" content="https://games647.github.io/BitcoinQRCode/favicon.ico"/>
+    <meta property="og:url" content="https://games647.github.io/BitcoinQRCode"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="Bitcoin QR Code Generator"/>
 
     <!-- Necessary to parse the card correctly -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary"/>
 
     <link rel="icon" href="favicon.ico">
 
@@ -75,16 +75,16 @@
                             <div class="small-1 large-1 columns">
                                 <span class="prefix"><input id="is_amount" type="checkbox"/></span>
                             </div>
-                            <div class="small-8 large-9 columns">
+                            <div class="small-7 large-9 columns">
                                 <input id="amount" type="number" placeholder="1" value="0"
                                        title="An optional amount to request."/>
                             </div>
-                            <div class="small-3 large-2 columns">
+                            <div class="small-4 large-2 columns">
                                 <select id="amount-factor" class="postfix">
-                                    <option value="BTC">BTC/LTC</option>
-                                    <option value="mBTC">mBTC/mLTC</option>
-                                    <option value="μBTC">&#181;BTC/&#181;LTC</option>
-                                    <option value="Satoshi">Satoshi/Litoshi</option>
+                                    <option value="BTC">BTC / LTC</option><label for="option">Value</label>
+                                    <option value="mBTC">mBTC / mLTC</option>
+                                    <option value="μBTC">&#181;BTC / &#181;LTC</option>
+                                    <option value="Satoshi">Sat / Lit</option>
                                 </select>
                             </div>
                         </div>
@@ -163,14 +163,16 @@
         </footer>
     </div>
 
-    <a id="fork" href="https://github.com/games647/BitcoinQRCode">Fork me on Github</a>
+    <a id="fork" href="https://github.com/games647/BitcoinQRCode">
+        <img src="img/fork.png" alt="Fork me on Github">
+    </a>
 </div>
 
 <!-- Javascript libraries -->
 <script src="./lib/jquery/jquery-2.0.3.min.js"></script>
-<script src="./lib/jquery-qrcode/jquery.qrcode.min.js"></script>
 <script src="./lib/big.min.js"></script>
 <script src="./lib/bitcoin-convert.min.js"></script>
+<script src="./lib/jquery-qrcode/jquery.qrcode.min.js"></script>
 
 <script src="./js/bitcoinqrcode.js"></script>
 </body>
