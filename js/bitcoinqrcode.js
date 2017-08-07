@@ -1,5 +1,5 @@
 $(function () {
-    var app, App;
+    var app;
 
     var CURRENCY = {
         Bitcoin: {
@@ -28,7 +28,7 @@ $(function () {
         }
     };
 
-    App = function () {
+    var App = function () {
         var self = this;
 
         this.type = CURRENCY.Bitcoin;
@@ -40,74 +40,31 @@ $(function () {
         this.is_label = false;
         this.is_msg = false;
         this.amount = 0; //this is always in BTC or LTC
-        this.amount_factor = $('#amount-factor').find('option:selected').val();
+        this.amount_factor = $('#amount-factor').find('option:selected').val();;
         this.label = '';
         this.msg = '';
 
-        $('#address, #size, #amount, #label, #msg, #is_amount, #is_label, #is_msg')
-            .on('change keyup', function () {
-                var address = $('#address').val();
-                var size = Math.min(600, Math.max(100, parseInt($('#size').val())));
+        this.timer = 0;
 
-                var is_amount = $('#is_amount').is(':checked');
-                var is_label = $('#is_label').is(':checked');
-                var is_msg = $('#is_msg').is(':checked');
+        //delay the update in order to prevent too many updates for mobile users
+        $('#address, #size, #amount, #label, #msg, #is_amount, #is_label, #is_msg').on('change keyup', function(event) {
+            if (self.timer) {
+                clearTimeout(self.timer);
+            }
 
-                var amount = 0;
-                if (is_amount) {
-                    amount = parseFloat($('#amount').val());
-                }
+            self.timer = setTimeout(self.update, 200);
+        }).trigger('change');
 
-                var label = '';
-                if (is_label) {
-                    label = $('#label').val();
-                }
-
-                var msg = '';
-                if (is_msg) {
-                    msg = $('#msg').val();
-                }
-
-                if (!address) {
-                    address = $('#address').attr('placeholder');
-                }
-
-                if (!size) {
-                    size = parseInt($('#size').attr('placeholder'), 10);
-                }
-
-                if (( address.length >= 27 && address.length <= 34 && address !== self.address )
-                    || ( size && size !== self.size )
-                    || ( amount && amount !== self.amount )
-                    || ( label && label !== self.label )
-                    || ( msg && msg !== self.msg )
-                    || ( is_amount !== self.is_amount )
-                    || ( is_label !== self.is_label )
-                    || ( is_msg !== self.is_msg )
-                ) {
-                    self.is_amount = is_amount;
-                    self.is_label = is_label;
-                    self.is_msg = is_msg;
-
-                    self.address = address;
-                    self.size = size;
-                    self.amount = btcConvert(amount, self.amount_factor, 'BTC', 'Big').toFixed(8);
-                    self.label = label;
-                    self.msg = msg;
-
-                    $('#qrcodes').empty();
-                    self.update();
-                }
-            }).trigger('change');
-
+        //currency changed
         $('.currency').click(function () {
             $('#qrcode, #qrcodes').empty();
 
             var index = $('.currency:checked').val();
             self.type = CURRENCY[index];
-            self.update();
+            self.draw();
         });
 
+        //currency unit changed
         $('#amount-factor').change(function () {
             var old_type = self.amount_factor;
             var new_type = $('#amount-factor').find('option:selected').val();
@@ -121,6 +78,64 @@ $(function () {
     };
 
     App.prototype.update = function () {
+        var self = app;
+
+        var address = $('#address').val();
+        var size = Math.min(600, Math.max(100, parseInt($('#size').val())));
+
+        var is_amount = $('#is_amount').is(':checked');
+        var is_label = $('#is_label').is(':checked');
+        var is_msg = $('#is_msg').is(':checked');
+
+        var amount = 0;
+        if (is_amount) {
+            amount = parseFloat($('#amount').val());
+        }
+
+        var label = '';
+        if (is_label) {
+            label = $('#label').val();
+        }
+
+        var msg = '';
+        if (is_msg) {
+            msg = $('#msg').val();
+        }
+
+        if (!address) {
+            address = $('#address').attr('placeholder');
+        }
+
+        if (!size) {
+            size = parseInt($('#size').attr('placeholder'), 10);
+        }
+
+        if (( address.length >= 27 && address.length <= 34 && address !== self.address )
+            || ( size && size !== self.size )
+            || ( amount && amount !== self.amount )
+            || ( label && label !== self.label )
+            || ( msg && msg !== self.msg )
+            || ( is_amount !== self.is_amount )
+            || ( is_label !== self.is_label )
+            || ( is_msg !== self.is_msg )
+        ) {
+            self.is_amount = is_amount;
+            self.is_label = is_label;
+            self.is_msg = is_msg;
+
+            self.address = address;
+            self.size = size;
+
+            self.amount = btcConvert(amount, self.amount_factor, 'BTC', 'Big').toFixed(8);
+            self.label = label;
+            self.msg = msg;
+
+            $('#qrcodes').empty();
+            self.draw();
+        }
+    };
+
+    App.prototype.draw = function () {
         var self = this;
 
         var text = this.type.prefix + ':' + this.address;
@@ -189,6 +204,7 @@ $(function () {
         });
     };
 
+    //toggle (hide/show) optional list
     $(function () {
         $(".toggler").click(function (e) {
             e.preventDefault();
