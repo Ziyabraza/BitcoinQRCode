@@ -22,6 +22,7 @@ and more.
     * μBTC
     * Satoshi
 * Works offline
+* Mobile user friendly
 
 ## Supported currencies
 

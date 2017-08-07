@@ -10,6 +10,9 @@ $(function () {
                 'pixel.png',
                 'bitcoin-icon.png',
                 'bitcoin-coin.png',
+                'bitcoin-coin2.png',
+                'bitcoin-coin3.png',
+                'bitcoin-coin4.png',
                 'bitcoin-logo.png',
                 'bitcoin-8bit.png'
             ]
