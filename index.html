@@ -30,6 +30,7 @@
     <link rel="shortcut icon" href="favicon.ico">
 
     <link rel="stylesheet" href="./lib/foundation/foundation.min.css">
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/bitcoinqrcode.css">
 </head>
 
@@ -50,14 +51,31 @@
                 <div class="large-6 columns">
                     <label for="address">Bitcoin address:</label>
 
-                    <input id="address" type="text" placeholder="13Q78REGVTQPdH4AaVMhzVsbQJXCjEivu7"
-                           title="The address to send the payment to."/>
+                    <div class="row collapse">
+                        <div class="small-1 columns">
+                            <span class="prefix">
+                                <i class="fa fa-btc" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <div class="small-11 columns">
+                            <input id="address" type="text" placeholder="13Q78REGVTQPdH4AaVMhzVsbQJXCjEivu7"
+                                   title="The address to send the payment to."/>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="large-3 columns">
                     <label for="size">Size (px):</label>
-
-                    <input id="size" type="text" placeholder="100" value="100" title="Image size"/>
+                    <div class="row collapse">
+                        <div class="small-2 columns">
+                            <span class="prefix">
+                                <i class="fa fa-arrows" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <div class="small-10 columns">
+                            <input id="size" type="text" placeholder="100" value="100" title="Image size"/>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="large-3 columns">
@@ -75,10 +93,12 @@
                         <label for="amount">Amount:</label>
                         <div class="row collapse">
                             <div class="small-1 large-1 columns">
-                                <span class="prefix"><input id="is_amount" type="checkbox"/></span>
+                                <span class="prefix">
+                                    <input id="is_amount" type="checkbox"/>
+                                </span>
                             </div>
-                            <div class="small-7 large-9 columns">
-                                <input id="amount" type="number" placeholder="1" value="0"
+                            <div class="small-6 large-8 columns">
+                                <input id="amount" type="number" placeholder="1" value="0.000001"
                                        title="An optional amount to request."/>
                             </div>
                             <div class="small-4 large-2 columns">
@@ -89,6 +109,11 @@
                                     <option value="Satoshi">Sat / Lit</option>
                                 </select>
                             </div>
+                            <div class="small-1 large-1 columns">
+                                <span class="postfix">
+                                    <i class="fa fa-usd" aria-hidden="true"></i>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -97,11 +122,18 @@
                         <label for="label">Label (identifier/name):</label>
                         <div class="row collapse">
                             <div class="small-1 large-1 columns">
-                                <span class="prefix"><input id="is_label" type="checkbox"/></span>
+                                <span class="prefix">
+                                    <input id="is_label" type="checkbox"/>
+                                </span>
                             </div>
-                            <div class="small-11 large-11 columns">
+                            <div class="small-10 large-10 columns">
                                 <input id="label" type="text" placeholder="Identifier or name"
                                        title="A short memorable name for this receiving address."/>
+                            </div>
+                            <div class="small-1 large-1 columns">
+                                <span class="postfix">
+                                    <i class="fa fa-tag" aria-hidden="true"></i>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -111,11 +143,18 @@
                         <label for="msg">Message:</label>
                         <div class="row collapse">
                             <div class="small-1 large-1 columns">
-                                <span class="prefix"><input id="is_msg" type="checkbox"/></span>
+                                <span class="prefix">
+                                    <input id="is_msg" type="checkbox"/>
+                                </span>
                             </div>
-                            <div class="small-11 large-11 columns">
+                            <div class="small-10 large-10 columns">
                                 <input id="msg" type="text" placeholder="Some message"
                                        title="A message to attach to the payment request, which will be displayed when the request is opened. The message will not be sent over the Bitcoin Network."/>
+                            </div>
+                            <div class="small-1 large-1 columns">
+                                <span class="postfix">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -124,10 +163,9 @@
             </div>
 
             <a class="button toggle-link toggler">
-                <span title="Optional fields">+ show advanced fields</span>
-                <span class="hidden">- hide advanced fields</span>
+                <span title="Optional fields">+ show optional fields</span>
+                <span class="hidden">- hide optional fields</span>
             </a>
-
         </form>
 
         <div id="qrcodes"></div>
@@ -137,10 +175,12 @@
 
         <div>
             <div class="row collapse">
-                <div class="small-0 medium-3 large-2 columns">
-                    <span class="prefix">Readed with reader: </span>
+                <div class="small-0 medium-1 columns">
+                   <span class="prefix">
+                       <i class="fa fa-qrcode" aria-hidden="true"></i>
+                   </span>
                 </div>
-                <div class="small-12 medium-9 large-10 columns">
+                <div class="small-12 medium-11 columns">
                     <input id="camera" type="text" readonly="readonly"/>
                 </div>
             </div>

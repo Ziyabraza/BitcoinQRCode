@@ -50,14 +50,10 @@ form input[type="radio"] {
     border: 0;
 }
 
-footer {
-    color: #999;
-    font-size: small;
-}
-
 #share {
+    color: #999;
+
     float: right;
-    font-size: 1.1em;
 }
 
 #share a {
