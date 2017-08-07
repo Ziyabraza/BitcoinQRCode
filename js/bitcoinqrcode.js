@@ -182,11 +182,12 @@ $(function () {
             context.mozImageSmoothingEnabled = false;
             context.webkitImageSmoothingEnabled = false;
 
+            //draw the QR-Code
             context.drawImage(qrcode, offset, offset, size, size);
 
+            //draw the overlays
             (function () {
                 var image = new Image();
-
                 image.src = 'img/' + overlay;
 
                 $(image).on('load', function () {
