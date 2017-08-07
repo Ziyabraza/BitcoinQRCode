@@ -21,6 +21,7 @@ and more.
     * mBTC
     * μBTC
     * Satoshi
+* Works offline
 
 ## Supported currencies
 

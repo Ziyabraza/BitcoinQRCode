@@ -6,6 +6,8 @@ form input[type="radio"] {
     margin-top: 3px;
     margin-left: 5px;
     margin-right: 3px;
+
+    transform: scale(1.2);
 }
 
 #qrcode {
@@ -42,9 +44,9 @@ form input[type="radio"] {
 }
 
 #fork img {
-    position: absolute; 
-    top: 0; 
-    right: 0; 
+    position: absolute;
+    top: 0;
+    right: 0;
     border: 0;
 }
 
@@ -55,6 +57,12 @@ footer {
 
 #share {
     float: right;
+    font-size: 1.1em;
+}
+
+#share a {
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 #share div {
