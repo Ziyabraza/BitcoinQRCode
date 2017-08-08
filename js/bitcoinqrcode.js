@@ -47,7 +47,8 @@ $(function () {
         this.timer = 0;
 
         //delay the update in order to prevent too many updates for mobile users
-        $('#address, #size, #amount, #label, #msg, #is_amount, #is_label, #is_msg').on('change keyup', function(event) {
+        $('#address, #size, #amount, #label, #msg, #is_amount, #is_label, #is_msg')
+            .on('change keyup input', function(event) {
             if (self.timer) {
                 clearTimeout(self.timer);
             }
@@ -81,7 +82,7 @@ $(function () {
         var self = app;
 
         var address = $('#address').val();
-        var size = Math.min(600, Math.max(100, parseInt($('#size').val())));
+        var size = Math.max(64, Math.min(600, parseInt($('#size').val())));
 
         var is_amount = $('#is_amount').is(':checked');
         var is_label = $('#is_label').is(':checked');
