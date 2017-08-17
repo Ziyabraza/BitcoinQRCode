@@ -1,7 +1,7 @@
 $(function () {
-    var app;
+    let app;
 
-    var CURRENCY = {
+    const CURRENCY = {
         Bitcoin: {
             name: "Bitcoin",
             prefix: "bitcoin",
@@ -28,8 +28,8 @@ $(function () {
         }
     };
 
-    var App = function () {
-        var self = this;
+    let App = function () {
+        let self = this;
 
         this.type = CURRENCY.Bitcoin;
 
@@ -40,7 +40,7 @@ $(function () {
         this.is_label = false;
         this.is_msg = false;
         this.amount = 0; //this is always in BTC or LTC
-        this.amount_factor = $('#amount-factor').find('option:selected').val();;
+        this.amount_factor = $('#amount-factor').find('option:selected').val();
         this.label = '';
         this.msg = '';
 
@@ -48,30 +48,30 @@ $(function () {
 
         //delay the update in order to prevent too many updates for mobile users
         $('#address, #size, #amount, #label, #msg, #is_amount, #is_label, #is_msg')
-            .on('change keyup input', function(event) {
-            if (self.timer) {
-                clearTimeout(self.timer);
-            }
+            .on('change keyup input', function (event) {
+                if (self.timer) {
+                    clearTimeout(self.timer);
+                }
 
-            self.timer = setTimeout(self.update, 200);
-        }).trigger('change');
+                self.timer = setTimeout(self.update, 200);
+            }).trigger('change');
 
         //currency changed
         $('.currency').click(function () {
             $('#qrcode, #qrcodes').empty();
 
-            var index = $('.currency:checked').val();
+            let index = $('.currency:checked').val();
             self.type = CURRENCY[index];
             self.draw();
         });
 
         //currency unit changed
         $('#amount-factor').change(function () {
-            var old_type = self.amount_factor;
-            var new_type = $('#amount-factor').find('option:selected').val();
+            let old_type = self.amount_factor;
+            let new_type = $('#amount-factor').find('option:selected').val();
 
-            var old_coins = $('#amount').val();
-            var coins = btcConvert(old_coins, old_type, new_type, 'Big');
+            let old_coins = $('#amount').val();
+            let coins = btcConvert(old_coins, old_type, new_type, 'Big');
             $('#amount').val(coins.toFixed(8));
 
             self.amount_factor = new_type;
@@ -79,26 +79,27 @@ $(function () {
     };
 
     App.prototype.update = function () {
-        var self = app;
+        let self = app;
 
-        var address = $('#address').val();
-        var size = Math.max(64, Math.min(600, parseInt($('#size').val())));
+        let address = $('#address').val();
 
-        var is_amount = $('#is_amount').is(':checked');
-        var is_label = $('#is_label').is(':checked');
-        var is_msg = $('#is_msg').is(':checked');
+        let size = Math.max(64, Math.min(600, parseInt($('#size').val())));
 
-        var amount = 0;
+        let is_amount = $('#is_amount').is(':checked');
+        let is_label = $('#is_label').is(':checked');
+        let is_msg = $('#is_msg').is(':checked');
+
+        let amount = 0;
         if (is_amount) {
             amount = parseFloat($('#amount').val());
         }
 
-        var label = '';
+        let label = '';
         if (is_label) {
             label = $('#label').val();
         }
 
-        var msg = '';
+        let msg = '';
         if (is_msg) {
             msg = $('#msg').val();
         }
@@ -137,9 +138,9 @@ $(function () {
     };
 
     App.prototype.draw = function () {
-        var self = this;
+        let self = this;
 
-        var text = this.type.prefix + ':' + this.address;
+        let text = this.type.prefix + ':' + this.address;
         if (this.is_amount) {
             text += '?amount=' + this.amount;
         }
@@ -162,19 +163,20 @@ $(function () {
 
         $('#camera').val(text);
 
+        $('#qrcode').empty();
         $('#qrcode').qrcode({
             text: text,
             width: self.size,
             height: self.size
         });
 
-        var qrcode = $('#qrcode').find('canvas').get(0);
+        let qrcode = $('#qrcode').find('canvas').get(0);
 
         $(self.type.overlays).each(function (i, overlay) {
-            var canvas = $('<canvas>').get(0);
-            var context = canvas.getContext('2d');
-            var size = Math.floor(self.size);
-            var offset = Math.floor(( self.size - size ) / 2);
+            let canvas = $('<canvas>').get(0);
+            let context = canvas.getContext('2d');
+            let size = Math.floor(self.size);
+            let offset = Math.floor(( self.size - size ) / 2);
 
             canvas.width = self.size;
             canvas.height = self.size;
@@ -188,11 +190,11 @@ $(function () {
 
             //draw the overlays
             (function () {
-                var image = new Image();
+                let image = new Image();
                 image.src = 'img/' + overlay;
 
                 $(image).on('load', function () {
-                    var wrap = $('<div>');
+                    let wrap = $('<div>');
 
                     context.drawImage(image, offset, offset, size, size);
 
