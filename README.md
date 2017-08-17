@@ -1,5 +1,9 @@
 # BitcoinQRCode
 
+**Warning: Previously were was a bug in this software that didn't geranted new QR-Codes. It just hides and show them.
+It's fixed now. I paying everything back as you can verify in the blockchain. Please verify generated QR-Codes if you
+previously used this software.**
+
 ![Bitcoin QR-Code with logo](example.png)
 
 ## Description
