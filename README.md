@@ -1,5 +1,7 @@
 # BitcoinQRCode
 
+![Bitcoin QR-Code with logo](example.png)
+
 ## Description
 
 This project generates QR-codes for your Bitcoin receiving addresses with configurable options like image size, amount
